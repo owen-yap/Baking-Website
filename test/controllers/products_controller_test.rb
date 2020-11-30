@@ -1,6 +1,15 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+<<<<<<< HEAD
+  test "should get new" do
+    get products_new_url
+    assert_response :success
+  end
+
+  test "should get create" do
+    get products_create_url
+=======
   test "should get edit" do
     get products_edit_url
     assert_response :success
@@ -13,6 +22,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get destroy" do
     get products_destroy_url
+>>>>>>> master
     assert_response :success
   end
 
