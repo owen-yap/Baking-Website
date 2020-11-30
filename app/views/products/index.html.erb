@@ -1,8 +1,15 @@
-<h1>Product index page</h1>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Product index page
+</div>
 
-<% @products.each do |i| %>
-  <li><%= i.name %>
-  <%= i.description %>
-  <%= i.type %>
-  <%= i.price %></li>
-<% end %>
+<div class="container">
+  <% @products.each do |i| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= link_to i.name, product_path(i) %></h2>
+        <%= i.description %>
+      </div>
+    </div>
+  <% end %>
+</div>
