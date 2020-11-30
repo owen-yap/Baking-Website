@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'products/edit'
-  get 'products/update'
-  get 'products/destroy'
   root to: 'pages#home'
 
   resources :products
