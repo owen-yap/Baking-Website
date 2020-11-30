@@ -1,6 +1,16 @@
-<h1>Product details</h1>
-
-  <li><%= @product.name %>
-  <%= @product.description %>
-  <%= @product.category %>
-  <%= @product.price %></li> 
+<div class="container">
+  <h2>Product details</h2>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h5>Product Name</h5>
+      <li><%= @product.name %></li> 
+      <h5>Product Description</h5>
+      <li><%= @product.description %></li>
+      <h5>Product Category</h5>
+      <li><%= @product.category %></li>
+      <h5>Product Price</h5>
+      <li><%= @product.price %></li>
+    </div>
+  </div>
+</div>
