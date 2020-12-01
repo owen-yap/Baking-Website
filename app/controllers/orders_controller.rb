@@ -23,8 +23,6 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to orders_path
     else
-      @product = @order.product
-      @user = current_user
       render :new
     end
   end

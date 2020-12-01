@@ -26,6 +26,6 @@
 </div>
 
 <div class="lg-container">
-  <%= link_to "Remove", product_path(@product), class: "btn btn-pink", method: :delete %>
+  <%= link_to "Remove", product_path(@product), class: "btn btn-pink", method: :delete, data: { confirm: "Are you sure? All orders on this product will be destroyed." } %>
   <%= link_to "Edit", edit_product_path(@product), class: "btn btn-orange" %>
 </div>
