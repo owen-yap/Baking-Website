@@ -1,16 +1,30 @@
-<div class="container">
-  <h2>Product details</h2>
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="lg-container">
+  <%= link_to "< View more products", product_path(@product), class: "btn-muted" %>
+</div>
+<div class="split-container">
+  <div class="left-container">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"/>
+  </div>
+  <div class="right-container">
     <div class="card-product-infos">
-      <h5>Product Name</h5>
-      <li><%= @product.name %></li> 
-      <h5>Product Description</h5>
-      <li><%= @product.description %></li>
-      <h5>Product Category</h5>
-      <li><%= @product.category %></li>
-      <h5>Product Price</h5>
-      <li><%= @product.price %></li>
-    </div>
+
+      <div class="card-description">
+
+        <p class="card-title"><h1><%= @product.name %></h1><%= @product.category %></p>
+   
+        <h3>Address</h3>
+        <p class="card-address"><%= @product.user.address %></p>
+        
+        <h3>Description</h3>
+        <p class="card-description"><%= @product.description %></p>
+        
+    
+        <h3>Price</h3>
+        <p class="price"><%="$#{@product.price}"%></p>
+
+      </div>
+
   </div>
 </div>
+
+
