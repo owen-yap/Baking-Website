@@ -4,7 +4,7 @@ Product.destroy_all
 
 user = User.new(email: "abc@gmail.com", password: "123123")
 user.username = "JohnDoe"
-user.address = "Internation Towers, Orchard"
+user.address = "International Towers, Orchard"
 user.save
 
 5.times do
