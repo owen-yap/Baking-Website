@@ -56,3 +56,22 @@
   max-width: 600px;
   margin: 0 auto;
 }
+
+.order-form {
+  box-shadow: 2px 2px 8px rgb(175, 175, 175);
+  border-radius: 8px;
+  padding: 16px;
+  p {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+}
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

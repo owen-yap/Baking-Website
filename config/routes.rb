@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'products#index'
   resources :products do
-    resources :order, except: [:index]
+    resources :orders, except: [:index]
   end
   get '/orders', to: 'orders#index'
 
