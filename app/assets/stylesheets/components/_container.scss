@@ -25,3 +25,19 @@
     width: 47%;
   }
 }
+
+.lg-container {
+  width:90%;
+  max-width: 1300px;
+  margin: 0 auto; 
+  a {
+    transition: color ease 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
