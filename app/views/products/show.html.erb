@@ -20,6 +20,7 @@
         <h3>Description</h3>
         <p class="card-description"><%= @product.description %></p>
       </div>
+      <%= link_to "Order now", new_product_order_path(@product), class: "btn-orange" %>
     </div>
   </div>
 </div>
