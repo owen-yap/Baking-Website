@@ -8,6 +8,7 @@
     <p class="subheading"><strong>Delivery Address: </strong><%= @user.address %></p>
     <p class="subheading"><strong>Price: </strong>$<%= @product.price %></p>
     <%= simple_form_for [@product, @order] do |f| %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, 'Submit Order', class: "btn-orange"  %>
     <% end %>
   </div>
