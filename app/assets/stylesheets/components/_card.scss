@@ -1,7 +1,11 @@
 .container {
   margin-top: 30px;
   border-style: solid;
-  box-shadow: 1px 1px 1px 1px lightgray;
+  box-shadow: 1px 1px 1px 0.2px lightgray;
+  border-color: lightgray;
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .card-category {
@@ -21,11 +25,12 @@
 
 .card-product {
   overflow: hidden;
-  height: 240px;
+  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  padding-top: 10px;
 }
 
 .card-product img {
