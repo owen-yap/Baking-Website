@@ -3,13 +3,23 @@
 </div>
 
 <div class="container">
-  <% @products.each do |i| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= link_to i.name, product_path(i) %></h2>
-        <%= i.description %>
+  <% @products.each do |product| %>
+    <a href="<%= product_path(product) %>">
+      <div class="card-product">
+        <div class="card-user">
+          <%= product.user.username %>
+        </div>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <div class="card-description">
+            <p class="card-title"><%= product.name %></p>
+            <p class="card-address"><%= product.user.address %></p>
+          </div>
+          <div class="card-price">
+            <p class="price"><%="$#{product.price}"%></p>
+          </div>
+        </div>
       </div>
-    </div>
+   </a>
   <% end %>
 </div>

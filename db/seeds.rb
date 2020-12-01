@@ -1,5 +1,3 @@
-require 'faker'
-
 puts "Clearing users..."
 User.destroy_all
 Product.destroy_all
@@ -9,6 +7,8 @@ user.username = "JohnDoe"
 user.address = "Internation Towers, Orchard"
 user.save
 
-product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
-product.user = user
-product.save
+5.times do
+  product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
+  product.user = user
+  product.save
+end
