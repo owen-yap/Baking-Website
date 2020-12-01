@@ -4,6 +4,7 @@
   margin: 0 auto;
 }
 
+
 .split-container {
   display: flex;
   width:90%;
@@ -40,4 +41,9 @@
       color: black;
     }
   }
+
+.sm-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
 }
