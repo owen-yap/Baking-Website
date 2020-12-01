@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 # using devise authentication
 gem 'devise'
+# secret keys
+gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use postgresql as the database for Active Record
