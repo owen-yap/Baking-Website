@@ -1,19 +1,30 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Product Details
-</div>
-
-<div class="container">
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg " />
-    <div class="card-product-infos">
-      <h5>Product Name</h5>
-      <li><%= @product.name %></li> 
-      <h5>Product Description</h5>
-      <li><%= @product.description %></li>
-      <h5>Product Category</h5>
-      <li><%= @product.category %></li>
-      <h5>Product Price</h5>
-      <li><%= @product.price %></li>
+<div class="split-container">
+  <div class="left-container">
+    <div class="btn">
+    
     </div>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"/>
+  </div>
+  <div class="right-container">
+    <div class="card-product-infos">
+
+      <div class="card-description">
+
+        <p class="card-title"><h1><%= @product.name %></h1><%= @product.category %></p>
+   
+        <h3>Address</h3>
+        <p class="card-address"><%= @product.user.address %></p>
+        
+        <h3>Description</h3>
+        <p class="card-description"><%= @product.description %></p>
+        
+    
+        <h3>Price</h3>
+        <p class="price"><%="$#{@product.price}"%></p>
+
+      </div>
+
   </div>
 </div>
+
+

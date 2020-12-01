@@ -1,0 +1,27 @@
+.outer-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.split-container {
+  display: flex;
+  width:90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  justify-content: space-between;
+  box-shadow: 2px 2px 8px rgb(175, 175, 175);
+  border-radius: 8px;
+  .left-container {
+    width: 47%;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .right-container {
+    width: 47%;
+  }
+}
