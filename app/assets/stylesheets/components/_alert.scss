@@ -4,3 +4,16 @@
   right: 16px;
   z-index: 1000;
 }
+
+.foot-links {
+  display: flex;
+  position: relative
+}
+
+.cancel-link {
+  position: absolute;
+  bottom: -5px;
+  right: 2px;
+  z-index: 1000;
+  font-size: 12px
+}
