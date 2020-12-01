@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def my_products
+    @products = current_user.products
+  end
+
   def new
     @product = Product.new
   end
@@ -36,7 +40,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    
+
     redirect_to root_path
   end
 
