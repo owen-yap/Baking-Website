@@ -5,12 +5,17 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def my_products
+    @products = current_user.products
+  end
+
   def new
     @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
 
     if @product.save
       redirect_to product_path(@product)
@@ -36,7 +41,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    
+
     redirect_to root_path
   end
 
