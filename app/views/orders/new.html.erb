@@ -1,2 +1,14 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<div class="sm-container">
+  <%= link_to "< Back", product_path(@product), class: "btn-muted" %>
+</div>
+<div class="sm-container">
+  <div class="order-form">
+    <h1>New Order</h1>
+    <p class="subheading"><strong>Item: </strong><%= @product.name %></p>
+    <p class="subheading"><strong>Delivery Address: </strong><%= @user.address %></p>
+    <p class="subheading"><strong>Price: </strong>$<%= @product.price %></p>
+    <%= simple_form_for [@product, @order] do |f| %>
+      <%= f.button :submit, 'Submit Order', class: "btn-orange"  %>
+    <% end %>
+  </div>
+</div>

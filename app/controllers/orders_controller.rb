@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[show edit update destroy]
 
   def index
-    @orders = User.find(current_user).orders
+    @orders = current_user.orders
   end
 
   def show
@@ -11,12 +11,22 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @user = current_user
+    @product = Product.find(params[:product_id])
   end
 
   def create
     @order = Order.new
     @order.user = current_user
     @order.product = Product.find(params[:product_id])
+    @order.status = "pending"
+    if @order.save
+      redirect_to orders_path
+    else
+      @product = @order.product
+      @user = current_user
+      render :new
+    end
   end
 
   def edit
