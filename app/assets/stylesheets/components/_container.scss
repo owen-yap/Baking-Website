@@ -56,7 +56,6 @@
   max-width: 600px;
   margin: 0 auto;
 }
-<<<<<<< HEAD
 
 .order-form {
   box-shadow: 2px 2px 8px rgb(175, 175, 175);
@@ -70,5 +69,9 @@
     margin-bottom: 3rem;
   }
 }
-=======
->>>>>>> master
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

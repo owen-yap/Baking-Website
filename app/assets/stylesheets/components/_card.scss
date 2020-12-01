@@ -35,3 +35,20 @@
 a:hover .card-product {
   box-shadow: 2px 2px 12px rgb(122, 122, 122);
 }
+
+.order-card {
+  width: 90%;
+  box-shadow: 2px 2px 12px rgb(122, 122, 122);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
