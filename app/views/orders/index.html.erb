@@ -7,7 +7,7 @@
         <p class="card-title"><%= order.product.name %></p>
         <p><strong>Delivery address: </strong><%= order.user.address %></p>
         <p class="status"><%= order.status %></p>
-
+        <% raise %>
         <% order.each do |review| %>
           <li><%= review.content %><%= review.rating %></li>
         <% end %> 
