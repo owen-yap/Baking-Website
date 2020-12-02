@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @order = Order.find(params[:order_id])
     @product = @order.product
+    raise
   end
 
   def create
@@ -18,10 +19,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params_review)
+    @review = Review.find(review_params)
     # @orders = current_user.orders
     @review.destroy
-    redirect_to orders_path(@orders)
+    redirect_to orders_path
   end
 
   private

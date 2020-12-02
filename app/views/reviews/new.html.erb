@@ -3,7 +3,7 @@
   <div class="review-card">
     <%= simple_form_for [@product, @order, @review] do |f| %>
       <%= f.input :content, label: "Review" %>
-      <%= f.input :rating, label: "Rate between 1-5" %>
+      <%= f.input :rating, collection: 1..5, label: "Rate between 1-5" %>
       <%= f.submit 'Submit Review', class: "btn-orange" %>
     <% end %>
   </div>
