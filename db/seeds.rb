@@ -4,19 +4,22 @@ require 'pry-byebug'
 puts "Clearing users..."
 User.destroy_all
 Product.destroy_all
+Order.destroy_all
+Review.destroy_all
 
-
-
-
+# User
 user = User.new(email: "abc@gmail.com", password: "123123")
 user.username = "JohnDoe"
 user.address = "International Towers, Orchard"
-user.save
+user.save!
 
 
+<<<<<<< HEAD
 
 
-
+=======
+#Product
+>>>>>>> master
 5.times do
   product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
   product.user = user
@@ -25,4 +28,16 @@ user.save
   product.save
 end
 
+product1 = Product.first
 
+#Order
+order1 = Order.new(status: "pending")
+order1.product = product1
+order1.user = user
+order1.save!
+
+#Reviews
+
+review1 = Review.new(content:"Great cupcakes", rating: 4)
+review1.order = order1
+review1.save!

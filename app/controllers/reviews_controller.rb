@@ -21,10 +21,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params_review)
-    @orders = current_user.orders
+    @review = Review.find(review_params)
+    # @orders = current_user.orders
     @review.destroy
-    redirect_to orders_path(@orders)
+    redirect_to orders_path
   end
 
   private
