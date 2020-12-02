@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
     @order.product = Product.find(params[:product_id])
     @order.status = "pending"
     if @order.save
-      redirect_to orders_path
+      redirect_to product_order_path(@order)
     else
       @product = @order.product
       @user = current_user
