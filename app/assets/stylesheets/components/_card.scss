@@ -42,6 +42,20 @@ a:hover .card-product {
   border-radius: 8px;
   display: flex;
   align-items: center;
+  margin: 2rem 0;
+
+  .card-content {
+    margin-left: 1rem;
+
+    .card-title {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+
+    .status {
+      color: green;
+    }
+  }
 
   img {
     width: 100px;
