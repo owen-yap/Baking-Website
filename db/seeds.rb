@@ -1,4 +1,5 @@
 require "open-uri"
+require 'pry-byebug'
 
 puts "Clearing users..."
 User.destroy_all
@@ -13,6 +14,8 @@ user.address = "International Towers, Orchard"
 user.save
 
 
+
+binding.pry
 
 5.times do
   product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
