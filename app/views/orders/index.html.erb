@@ -2,7 +2,12 @@
   <h1>My Orders</h1>
   <% @orders.each do |order| %>
     <div class="order-card">
-      <img src="https://source.unsplash.com/random/300x300">
+      <% if order.product.photo.attached? %>
+        <%= cl_image_tag order.product.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <img src="https://source.unsplash.com/random/300x300">
+      <% end %>
+      <!-- <img src="https://source.unsplash.com/random/300x300"> -->
       <div class="card-content">
         <p class="card-title"><%= order.product.name %></p>
         <p><strong>Delivery address: </strong><%= order.user.address %></p>
