@@ -4,7 +4,11 @@
 
 <div class="split-container">
   <div class="left-container">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"/>
+    <% if @product.photo.attached? %>
+      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <% end %>
   </div>
   <div class="right-container">
     <div class="card-product-infos">
@@ -26,6 +30,6 @@
 </div>
 
 <div class="lg-container">
-  <%= link_to "Remove", product_path(@product), class: "btn btn-pink", method: :delete %>
+  <%= link_to "Remove", product_path(@product), class: "btn btn-pink", method: :delete, data: { confirm: "Are you sure? All orders on this product will be destroyed." } %>
   <%= link_to "Edit", edit_product_path(@product), class: "btn btn-orange" %>
 </div>
