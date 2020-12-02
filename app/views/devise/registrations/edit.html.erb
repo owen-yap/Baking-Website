@@ -9,23 +9,24 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-
       <%= f.input :address,
                   hint: "your new address",
                   required: false,
                   input_html: { autocomplete: "new-address" } %>
 
       <%= f.input :password,
-                  hint: "your new password",
+                  hint: "change password",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
+                  hint: "confirm change of password",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :current_password,
                   hint: "your current password to confirm your changes",
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
+      <%= f.input :userphoto, as: :file %>
     </div>
 
     <div class="form-actions foot-links">
