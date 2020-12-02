@@ -17,13 +17,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     @order.user = current_user
     @order.product = Product.find(params[:product_id])
     @order.status = "pending"
 
     if @order.save
-      redirect_to orders_path
+      redirect_to orders_path(@order)
     else
       render :new
     end
@@ -42,6 +42,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:orders).permit(:status)
   end
 end

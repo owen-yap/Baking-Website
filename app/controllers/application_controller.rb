@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username address])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[username address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :address, :userphoto])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :address, :userphoto])
   end
 
   # Uncomment when you *really understand* Pundit!
