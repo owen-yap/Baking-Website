@@ -12,7 +12,6 @@
         <p class="card-title"><%= order.product.name %></p>
         <p><strong>Delivery address: </strong><%= order.user.address %></p>
         <p class="status"><%= order.status %></p>
-        <p>Review: <%=order.review.content %> ,<strong><%= order.review.rating %></strong> ★</p>
         <%= link_to "Add Review", new_product_order_review_path(order.product, order) %>
       </div>
     </div>
