@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params_review)
-    # @orders = current_user.orders
+    @orders = current_user.orders
     @review.destroy
     redirect_to orders_path(@orders)
   end

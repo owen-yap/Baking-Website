@@ -8,9 +8,6 @@
         <p><strong>Delivery address: </strong><%= order.user.address %></p>
         <p class="status"><%= order.status %></p>
         
-        <% order.each do |review| %>
-          <li><%= review.content %><%= review.rating %></li>
-        <% end %> 
 
         <%= link_to "Add Review", new_product_order_review_path(order.product, order) %>
       </div>
