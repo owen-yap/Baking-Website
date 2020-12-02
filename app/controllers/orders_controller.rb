@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
+    @review = @order.review
   end
 
   def show
