@@ -4,9 +4,6 @@
     <div class="order-card">
       <img src="https://source.unsplash.com/random/300x300">
       <div class="card-content">
-        <% if order.photo.attached? %>
-          <%= cl_image_tag order.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
         <p><%= order.product.name %></p>
         <p><%= order.user.address %></p>
         <p class="status">order.status</p>

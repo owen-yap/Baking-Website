@@ -4,7 +4,11 @@
 
 <div class="split-container">
   <div class="left-container">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"/>
+    <% if @product.photo.attached? %>
+      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <% end %>
   </div>
   <div class="right-container">
     <div class="card-product-infos">

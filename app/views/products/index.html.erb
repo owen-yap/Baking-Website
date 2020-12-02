@@ -1,4 +1,3 @@
-
 <div class="outer-container">
   <div class="container-fluid">
     <div class="row">
@@ -8,7 +7,13 @@
             <div class="card-user">
               <%= product.user.username %>
             </div>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+            <% if product.photo.attached? %>
+              <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+
             <div class="card-product-infos">
               <div class="card-description">
                 <p class="card-title"><%= product.name %></p>

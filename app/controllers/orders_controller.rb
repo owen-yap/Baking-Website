@@ -43,6 +43,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status, :photo)
+    params.require(:order).permit(:status)
   end
 end
