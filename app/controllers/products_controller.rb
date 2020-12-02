@@ -4,20 +4,24 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def my_products
     @products = current_user.products
+    skip_authorization
   end
 
   def new
     @product = Product.new
+    skip_authorization
   end
 
   def create
     @product = Product.new(product_params)
     @product.user = current_user
 
+    authorize @product
     if @product.save
       redirect_to product_path(@product)
     else
@@ -26,10 +30,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    skip_authorization
   end
 
   def edit
+    authorize @product
   end
 
   def update
@@ -41,6 +46,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize @product
     @product.destroy
     redirect_to root_path
   end
