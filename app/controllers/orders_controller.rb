@@ -3,8 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
-    
-    
+    @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def show
