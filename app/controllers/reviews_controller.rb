@@ -2,19 +2,22 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @order = Order.find(params[:order_id])
+    @review.order = @order
     @product = @order.product
+    skip_authorization
   end
 
   def create
     @review = Review.new(review_params)
     @order = Order.find(params[:order_id])
-    @product = @order.product
     @review.order = @order
+    authorize @review
     if @review.save
       redirect_to orders_path
     else
       render :new
     end
+    skip_authorization
   end
 
   def destroy

@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @user = current_user
     @product = Product.find(params[:product_id])
+    authorize @order
   end
 
   def create
@@ -21,6 +22,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.product = Product.find(params[:product_id])
     @order.status = "pending"
+    authorize @order
 
     if @order.save
       redirect_to orders_path(@order)
