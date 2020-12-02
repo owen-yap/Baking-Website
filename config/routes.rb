@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/index'
   get "/my_products", to: "products#my_products", as: :my_products
-  get "/my_orders", to: "orders#my_orders", as: :my_orders
   get '/orders', to: 'orders#index'
   devise_for :users
   root to: 'products#index'
