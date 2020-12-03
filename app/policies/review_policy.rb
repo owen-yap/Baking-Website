@@ -13,4 +13,7 @@ class ReviewPolicy < ApplicationPolicy
     record.order.user == user && Review.exists?(record.id) == false
   end
 
+  def destroy?
+    record.order.user == user
+  end
 end
