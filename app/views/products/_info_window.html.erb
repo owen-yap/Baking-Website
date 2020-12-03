@@ -1,2 +1,8 @@
-<h6><%= user.username %></h6>
-<p><%= user.address %></p>
+<h6><%= seller.username %></h6>
+<p><%= seller.address %></p>
+<ul>
+  <% seller.products.each do |product| %>
+  <li><%= product.name %></li>
+
+<% end %>
+</ul>
