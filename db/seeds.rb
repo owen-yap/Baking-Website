@@ -9,17 +9,12 @@ User.destroy_all
 
 # User
 user = User.new(email: "abc@gmail.com", password: "123123")
-user.username = "JohnDoe"
-user.address = "International Towers, Orchard"
+user.username = "John Doe"
+user.address = "The Paterson, Singapore"
 user.save!
 
-
-<<<<<<< HEAD
-
-
-=======
 #Product
->>>>>>> master
+
 5.times do
   product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
   product.user = user
