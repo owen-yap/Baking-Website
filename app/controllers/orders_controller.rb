@@ -3,8 +3,9 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
-    @review = current_user.review
-    @review = @order.review
+    # @review = 
+    # @review = @order.review
+    # raise
     @products = policy_scope(Product).order(created_at: :desc)
   end
 
