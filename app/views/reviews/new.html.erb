@@ -1,7 +1,7 @@
 <div class="outer-container">
   <h1>Add a review</h1>
   <div class="review-card">
-    <%= simple_form_for [@product, @order, @review] do |f| %>
+    <%= simple_form_for [@order, @review] do |f| %>
       <%= f.input :content, label: "😝How was the taste?" %>
       <%= f.input :rating, label: "⭐Give it a rating", collection: 1..5 %>
       <%= f.submit 'Submit Review', class: "btn btn-orange" %>
