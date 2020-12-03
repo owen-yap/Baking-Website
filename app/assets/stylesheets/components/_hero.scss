@@ -1,0 +1,23 @@
+.parallax-container {
+  width: 90%;
+  max-width: 1300px;
+  height: 70vh;
+  margin: 0 auto;
+  background-image: url(hero-bg.png);
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: black;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+}
