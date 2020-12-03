@@ -1,11 +1,11 @@
 require "open-uri"
 require 'pry-byebug'
 
-puts "Clearing users..."
-User.destroy_all
-Product.destroy_all
-Order.destroy_all
+puts "Clearing database..."
 Review.destroy_all
+Order.destroy_all
+Product.destroy_all
+User.destroy_all
 
 # User
 user = User.new(email: "abc@gmail.com", password: "123123")
