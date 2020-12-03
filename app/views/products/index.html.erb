@@ -21,7 +21,7 @@
                 <p class="card-address"><%= product.user.address %></p>
               </div>
               <div class="card-price">
-                <p class="price"><%="$#{product.price}"%></p>
+                <p class="price"><%="#{humanized_money_with_symbol(product.price)}"%></p>
               </div>
             </div>
           </div>

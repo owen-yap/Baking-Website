@@ -38,6 +38,10 @@ gem 'simple_form'
 gem 'pundit'
 gem 'geocoder'
 
+# Payment gems
+gem 'money-rails'
+gem 'stripe'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

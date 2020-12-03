@@ -13,10 +13,8 @@ user.username = "John Doe"
 user.address = "The Paterson, Singapore"
 user.save!
 
-#Product
-
 5.times do
-  product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
+  product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: (1..15).to_a.sample, category: "Pastry")
   product.user = user
   file = URI.open('https://source.unsplash.com/300x400/?Cupcake')
   product.photo.attach(io: file, filename: 'jpeg', content_type: 'image/jpeg')
@@ -29,6 +27,8 @@ product1 = Product.first
 order1 = Order.new(status: "pending")
 order1.product = product1
 order1.user = user
+order1.address = "221B Baker Street"
+order1.quantity = 3
 order1.save!
 
 #Reviews

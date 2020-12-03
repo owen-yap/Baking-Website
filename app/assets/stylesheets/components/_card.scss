@@ -22,7 +22,8 @@
       font-size: 2rem;
     }
     .card-price {
-      width: 15%;
+      display: inline-block;
+      padding-right: 5px; 
       margin-left: auto;
       
       .price {
