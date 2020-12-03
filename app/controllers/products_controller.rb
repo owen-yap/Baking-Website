@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: user })
       }
     end
+
+    # raise
   end
 
   def my_products
@@ -58,7 +60,7 @@ class ProductsController < ApplicationController
   def destroy
     authorize @product
     @product.destroy
-    redirect_to product_path
+    redirect_to root_path
   end
 
   private
