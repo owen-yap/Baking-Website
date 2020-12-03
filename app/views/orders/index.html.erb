@@ -13,11 +13,10 @@
         <p class="status"><%= order.status %></p>
         <% if order.review %>
           <p>Review: <%= order.review.content %> ,<strong><%= order.review.rating %></strong> ★</p>
-        <% end %>
-
-      
+        <% end %>   
       </div>
       <%= link_to "Add Review", new_order_review_path(order), class: "btn-orange review-btn" %>
+      <%= link_to "Destroy Review", orders_path, class: "btn-pink destroy-btn", method: :delete, data: { confirm: "Are ypu deleting this review?" }%>
     </div>
   <% end %>
 </div>
