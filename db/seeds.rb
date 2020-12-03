@@ -1,4 +1,5 @@
 require "open-uri"
+require 'pry-byebug'
 
 puts "Clearing database..."
 Review.destroy_all
@@ -13,7 +14,12 @@ user.address = "International Towers, Orchard"
 user.save!
 
 
+<<<<<<< HEAD
+
+
+=======
 #Product
+>>>>>>> master
 5.times do
   product = Product.new(name: "Cupcake", description: "Soft and fluffy", price: 15, category: "Pastry")
   product.user = user
