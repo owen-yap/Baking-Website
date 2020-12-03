@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    authorize @product
     if @product.update(product_params)
       redirect_to product_path(@product.id)
     else
