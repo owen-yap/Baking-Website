@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
         lng: user.longitude
       }
     end
+
+    # raise
   end
 
   def my_products
