@@ -10,7 +10,7 @@
         <p class="status">Status: <strong><%= order.status %></strong></p>
       <% if order.review %>
           <p>Review: <%= order.review.content %> ,<strong><%= order.review.rating %></strong> ★</p>
-        <% end %>
+      <% end %>
       </div>
       <%= link_to "Add Review", new_order_review_path(order), class: "btn-orange review-btn" %>
     </div>
