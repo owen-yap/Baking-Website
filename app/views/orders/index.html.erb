@@ -8,16 +8,9 @@
         <p>Quantity: <strong><%= order.quantity %></strong></p>
         <p>Delivery address: <strong><%= order.address %></strong></p>
         <p class="status">Status: <strong><%= order.status %></strong></p>
-      <% if order.review %>
-          <p>Review: <%= order.review.content %> ,<strong><%= order.review.rating %></strong> ★</p>
-<<<<<<< HEAD
-        <% end %>   
-=======
-        <% end %>
->>>>>>> master
       </div>
       <%= link_to "Add Review", new_order_review_path(order), class: "btn-orange review-btn" %>
-      <%= link_to "Destroy Review", orders_path, class: "btn-pink destroy-btn", method: :delete, data: { confirm: "Are ypu deleting this review?" }%>
     </div>
   <% end %>
 </div>
+
