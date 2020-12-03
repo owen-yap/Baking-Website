@@ -3,17 +3,13 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
-<<<<<<< HEAD
-    # @review =
-    # @review = @order.review
-    # raise
-=======
->>>>>>> master
     @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def show
     @order = Order.find(params[:id])
+    authorize @order
+    redirect_to orders_path
   end
 
   def new
@@ -39,7 +35,7 @@ class OrdersController < ApplicationController
         payment_method_types: ['card'],
         line_items: [{
           name: product.name,
-          images: product.photo.key,
+          images: [product.photo.key],
           amount: product.price_cents,
           currency: 'sgd',
           quantity: @order.quantity
@@ -48,7 +44,7 @@ class OrdersController < ApplicationController
         cancel_url: order_url(@order)
       )
 
-      order.update(checkout_session_id: session.id)
+      @order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(@order)
     else
       render :new
