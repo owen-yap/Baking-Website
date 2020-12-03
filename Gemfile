@@ -38,7 +38,10 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
+
+# Payment gems
 gem 'money-rails'
+gem 'stripe'
 
 group :development, :test do
   gem 'pry-byebug'

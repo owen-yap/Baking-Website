@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/orders', to: 'orders#index'
   devise_for :users
   root to: 'products#index'
+  
   resources :products do
     resources :orders, only: [:new, :create]
   end
