@@ -1,30 +1,23 @@
 .parallax-container {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  perspective: 8px;
-  perspective-origin: 0%;
+  width: 90%;
+  max-width: 1300px;
+  height: 70vh;
+  margin: 0 auto;
+  background-image: url(hero-bg.png);
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 
-  .bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateZ(0px);
-  }
-
-  .foreground {
-    margin-top: auto;
-    margin-bottom: 50px;
-    transform-origin: 0;
-    transform: translateZ(3px) scale(0.625);
-
-    h1 {
-      font-size: 3.5rem;
-    }
+  h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: black;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
   }
 }
