@@ -6,12 +6,14 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products = policy_scope(Product).order(created_at: :desc)
     @users = User.all
+    # this returns active record relation of users with products
+    @sellers = User.joins(:products).group('users.id')
 
-    @markers = @users.geocoded.map do |user|
+    @markers = @sellers.geocoded.map do |seller|
       {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+        lat: seller.latitude,
+        lng: seller.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { seller: seller })
       }
     end
 
