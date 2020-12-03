@@ -14,5 +14,6 @@ class ReviewPolicyTest < ActiveSupport::TestCase
   end
 
   def test_destroy
+    true
   end
 end

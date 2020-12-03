@@ -37,3 +37,16 @@
     <%= link_to "Edit", edit_product_path(@product), class: "btn btn-orange" %>
   <% end %>
 </div>
+
+<div class="outer-container">
+  <h2>Reviews</h2>
+  <% @product.reviews.each do |review| %>
+    <div class="order-card">
+      <%= cl_image_tag review.order.user.userphoto.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
+      <p><%= review.content %></p>
+      <%= link_to "destroy review?", review_path(review), class: "btn-pink review-btn", method: :delete %>
+    </div>
+  <% end %>
+</div>
+
+

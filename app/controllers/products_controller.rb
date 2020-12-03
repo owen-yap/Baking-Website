@@ -5,6 +5,14 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @products = policy_scope(Product).order(created_at: :desc)
+    @users = User.all
+
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def my_products
@@ -49,7 +57,7 @@ class ProductsController < ApplicationController
   def destroy
     authorize @product
     @product.destroy
-    redirect_to root_path
+    redirect_to product_path
   end
 
   private

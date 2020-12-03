@@ -3,9 +3,12 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
+<<<<<<< HEAD
     # @review =
     # @review = @order.review
     # raise
+=======
+>>>>>>> master
     @products = policy_scope(Product).order(created_at: :desc)
   end
 
