@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    raise
     @order = Order.find(params[:order_id])
     @review.order = @order
     authorize @review
