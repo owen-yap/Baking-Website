@@ -8,9 +8,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    
+
     if @review.order
-      redirect_to orders_path
+      redirect_to product_path
     end
 
     @order = Order.find(params[:order_id])
@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      redirect_to orders_path
+      redirect_to product_path(@review.order.product_id)
     else
       render :new
     end
@@ -27,10 +27,12 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(review_params)
+    @review = Review.find(params[:id])
+    @order = Order.find(@review.order_id)
+    authorize @review
     # @orders = current_user.orders
     @review.destroy
-    redirect_to orders_path
+    redirect_to product_path(@order.product)
   end
 
   private
