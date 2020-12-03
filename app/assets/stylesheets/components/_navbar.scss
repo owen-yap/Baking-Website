@@ -21,4 +21,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 70px;
   position: relative;
+   &:hover {
+     cursor: pointer;
+   }
 }

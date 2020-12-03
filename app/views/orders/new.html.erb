@@ -4,10 +4,12 @@
 <div class="sm-container">
   <div class="order-form">
     <h1>New Order</h1>
-    <p class="subheading"><strong>Item: </strong><%= @product.name %></p>
-    <p class="subheading"><strong>Delivery Address: </strong><%= @user.address %></p>
-    <p class="subheading"><strong>Price: </strong>$<%= @product.price %></p>
+    <p class="subheading">Item: <strong><%= @product.name %></strong></p>
+    <p class="subheading">Price: <strong>$<%= @product.price %></strong></p>
+    <h2>Order details</h2>
     <%= simple_form_for [@product, @order] do |f| %>
+      <%= f.input :quantity, label: 'Quantity: ', input_html: { type: 'number' } %>
+      <%= f.input :address, label: 'Delivery Address: ' %>
       <%= f.button :submit, 'Submit Order', class: "btn-orange" %>
     <% end %>
 

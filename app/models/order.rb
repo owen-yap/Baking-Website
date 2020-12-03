@@ -4,5 +4,5 @@ class Order < ApplicationRecord
   has_one :review, dependent: :destroy
 
   validates :status, inclusion: { in: %w[pending accepted delivered] }
-  validates :product, :user, presence: true
+  validates :product, :user, :address, :quantity, presence: true
 end

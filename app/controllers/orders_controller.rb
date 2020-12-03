@@ -14,11 +14,13 @@ class OrdersController < ApplicationController
     @order = Order.new
     @user = current_user
     @product = Product.find(params[:product_id])
+    @order.quantity = 1
+    @order.address = @user.address.to_s
     authorize @order
   end
 
   def create
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.user = current_user
     @order.product = Product.find(params[:product_id])
     @order.status = "pending"
@@ -44,6 +46,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:orders).permit(:status)
+    params.require(:order).permit(:status, :address, :quantity)
   end
 end
