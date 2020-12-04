@@ -42,7 +42,7 @@
   <h2>Reviews</h2>
   <% @product.reviews.each do |review| %>
     <div class="order-card">
-      <%= cl_image_tag review.order.user.userphoto.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
+      <%= user_avatar(review.order.user) %>
       <p><%= review.content %></p>
       <%= link_to "destroy review?", review_path(review), class: "btn-pink review-btn", method: :delete %>
     </div>
