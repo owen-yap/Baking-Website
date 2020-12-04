@@ -42,8 +42,23 @@
   <h2>Reviews</h2>
   <% @product.reviews.each do |review| %>
     <div class="order-card">
-      <%= cl_image_tag review.order.user.userphoto.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
-      <p><%= review.content %></p>
+      <div class = "avatar">
+        <%= cl_image_tag review.order.user.userphoto.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
+      </div>
+      
+      <div class = "name">
+        <strong><%= review.order.user.username %></strong>
+        <div class = "stars-rating">
+          <% (review.rating).times do |star| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
+        <div class = "review-content">
+          <p><%= review.content %></p>
+        </div>
+      </div>
+      
+      
       <%= link_to "destroy review?", review_path(review), class: "btn-pink review-btn", method: :delete %>
     </div>
   <% end %>
