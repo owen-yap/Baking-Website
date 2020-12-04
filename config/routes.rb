@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get "/my_products", to: "products#my_products", as: :my_products
+  get "/my_sales", to: "products#my_sales", as: :my_sales
   get '/orders', to: 'orders#index', as: :orders
   devise_for :users
   root to: 'products#index'
-  
+
   resources :products do
     resources :orders, only: [:new, :create]
   end
