@@ -55,7 +55,13 @@
           <p><%= review.content %></p>
         </div>
       </div>
-      <%= link_to "", review_path(review), class: "btn-pink review-btn", method: :delete %>
+
+      <div class="trash-icon">
+        <%= button_tag type: 'submit', class: "button postfix" do %>
+            <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
+      <%= link_to "Remove Review", review_path(review), class: "btn-pink review-btn", method: :delete %>
     </div>
   <% end %>
 </div>
