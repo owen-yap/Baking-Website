@@ -41,9 +41,20 @@
 <div class="outer-container">
   <h2 class="subheading">Reviews</h2>
   <% @product.reviews.each do |review| %>
-    <div class="order-card">
+    <div class="order-card p-3">
       <%= user_avatar(review.order.user, "avatar-large") %>
-      <p><%= review.content %></p>
+      
+      <div class = "name">
+        <strong><%= review.order.user.username %></strong>
+        <div class = "stars-rating">
+          <% (review.rating).times do |star| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
+        <div class = "review-content">
+          <p><%= review.content %></p>
+        </div>
+      </div>
       <%= link_to "destroy review?", review_path(review), class: "btn-pink review-btn", method: :delete %>
     </div>
   <% end %>
