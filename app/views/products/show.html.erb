@@ -55,7 +55,11 @@
           <p><%= review.content %></p>
         </div>
       </div>
-      <%= link_to "destroy review?", review_path(review), class: "btn-pink review-btn", method: :delete %>
+      <% if current_user == review.order.user %>
+        <%= link_to review_path(review), class: "mr-3", method: :delete do %>
+          <%= image_tag "delete.png", class: "trash-btn" %>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
