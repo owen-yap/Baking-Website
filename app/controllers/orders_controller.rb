@@ -52,9 +52,16 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    authorize @order
   end
 
   def update
+    authorize @order
+    if @order.update(order_params)
+      redirect_to my_sales_path
+    else
+      render :edit
+    end
   end
 
   private
