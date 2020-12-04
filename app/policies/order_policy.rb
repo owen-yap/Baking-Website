@@ -14,6 +14,16 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.user == user || record.product.user == user
   end
+
+  def edit?
+    # order.user => buyer   order.product.user=>seller
+    record.user == user || record.product.user == user
+  end
+
+  def update?
+    record.user == user || record.product.user == user
+  end
+
 end

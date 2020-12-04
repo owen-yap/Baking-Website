@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rbnb</title>
+    <title>Kampung Bakes</title>
+    <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,15 +15,16 @@
   </head>
 
   <body>
+    <main class="parallax-container">
+      <%= render 'shared/navbar' %>
+      <div class="outer-container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
 
-    <%= render 'shared/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div class="outer-container">
       <%= render 'shared/flashes' %>
-    </div>
 
-    <%= yield %>
+      <%= yield %>
+    </main>
   </body>
 </html>
