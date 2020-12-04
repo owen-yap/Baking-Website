@@ -1,6 +1,4 @@
 <%= simple_form_for(order) do |f| %>
-    <%= f.input :status, collection: %w[pending paid accepted delivered] %>
-    <%= f.input :address %>
-    <%= f.input :quantity, collection: 1..50 %>
+    <%= f.input :status, collection: %w[pending paid accepted delivered], as: :radio_buttons %>
     <%= f.submit class: "btn btn-orange"%>
   <% end %>

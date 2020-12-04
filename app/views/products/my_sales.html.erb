@@ -6,15 +6,16 @@
           <% if order.nil? %>
             <p>Sorry, you have no orders!😔</p>
           <% end %>
-            <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill, class: "product-img" %>
           <div class="card-content">
             <p class="card-title"><%= product.name %></p>
             <p>Quantity: <strong><%= order.quantity %></strong></p>
             <p>Delivery address: <strong><%= order.address %></strong></p>
             <p class="status">Status: <strong><%= order.status %></strong></p>
-            <%= link_to "Edit order", edit_order_path(order), class: "btn-orange edit-btn" %>
           </div>
+          <%= link_to "Edit order", edit_order_path(order), class: "btn-orange edit-btn mr-3" %>
         </div>
       <% end %>
     <% end %>
 </div>
+
