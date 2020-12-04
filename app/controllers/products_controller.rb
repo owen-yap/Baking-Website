@@ -20,11 +20,6 @@ class ProductsController < ApplicationController
     # raise
   end
 
-  def my_products
-    @products = current_user.products
-    skip_authorization
-  end
-
   def new
     @product = Product.new
     skip_authorization
@@ -63,6 +58,16 @@ class ProductsController < ApplicationController
     authorize @product
     @product.destroy
     redirect_to root_path
+  end
+
+  def my_products
+    @products = current_user.products
+    skip_authorization
+  end
+
+  def my_sales
+    @products = current_user.products
+    skip_authorization
   end
 
   private

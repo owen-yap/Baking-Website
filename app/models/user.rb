@@ -10,7 +10,8 @@ class User < ApplicationRecord
   has_one_attached :userphoto
   has_many :reviews, through: :orders, dependent: :destroy
 
+  # @user.seller? => true or false
   def seller?
-    !products.empty?
+    seller
   end
 end
