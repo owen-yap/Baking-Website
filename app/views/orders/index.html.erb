@@ -12,7 +12,10 @@
           <p>Review: <%= order.review.content %> ,<strong><%= order.review.rating %></strong> ★</p>
       <% end %>
       </div>
-      <%= link_to "Add Review", new_order_review_path(order), class: "btn-orange review-btn" %>
+      
+        <%= link_to "Add Review", new_order_review_path(order), class: "btn-orange  mr-3" %>
+      
+
     </div>
   <% end %>
 </div>

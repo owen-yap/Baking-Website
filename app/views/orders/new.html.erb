@@ -4,8 +4,13 @@
 <div class="sm-container">
   <div class="order-form">
     <h1>New Order</h1>
-    <p class="subheading">Item: <strong><%= @product.name %></strong></p>
-    <p class="subheading">Price: <strong>$<%= @product.price %></strong></p>
+    <div class="order-product">
+      <%= cl_image_tag @product.photo.key, alt: @product.name %>
+      <div class="content">
+        <p>Item: <strong><%= @product.name %></strong></p>
+        <p>Price: <strong>$<%= @product.price %></strong></p>
+      </div>
+    </div>
     <h2>Order details</h2>
     <%= simple_form_for [@product, @order] do |f| %>
       <%= f.input :quantity, label: 'Quantity: ', input_html: { type: 'number' } %>

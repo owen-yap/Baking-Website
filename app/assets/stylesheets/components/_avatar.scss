@@ -2,6 +2,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  display: inline-block;
 }
 .avatar-large {
   width: 56px;
@@ -23,4 +24,8 @@
 
 .dropdown-toggle {
   cursor: pointer;
+}
+
+.avatar-align {
+  vertical-align: 20px;
 }

@@ -39,12 +39,10 @@
 </div>
 
 <div class="outer-container">
-  <h2>Reviews</h2>
+  <h2 class="subheading">Reviews</h2>
   <% @product.reviews.each do |review| %>
     <div class="order-card p-3">
-
-      
-      <%= user_avatar(review.order.user) %>
+      <%= user_avatar(review.order.user, "avatar-large") %>
       
       <div class = "name">
         <strong><%= review.order.user.username %></strong>
