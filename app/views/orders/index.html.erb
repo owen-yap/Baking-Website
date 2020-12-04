@@ -2,7 +2,7 @@
   <h1>My Orders</h1>
   <% @orders.each do |order| %>
     <div class="order-card">
-      <%= cl_image_tag order.product.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag order.product.photo.key, height: 300, width: 400, crop: :fill, class: "product-img" %>
       <div class="card-content">
         <p class="card-title"><%= order.product.name %></p>
         <p>Quantity: <strong><%= order.quantity %></strong></p>
