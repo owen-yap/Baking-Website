@@ -1,6 +1,8 @@
+<h1 class="heading">Explore Singapore's best home-bakers</h1>
 <%= render "hero" %>
-<div class="outer-container">
+<div class="outer-container section static">
   <div class="container-fluid">
+    <h2 class="subheading">Featured Bakes</h2>
     <div class="row">
       <% @products.each do |product| %>
         <a href="<%= product_path(product) %>" class="col-12 col-md-6 col-lg-4">
@@ -29,6 +31,7 @@
       <% end %>
     </div>
   </div>
+  <h2 class="subheading">Find a home-baker near you</h2>
   <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
