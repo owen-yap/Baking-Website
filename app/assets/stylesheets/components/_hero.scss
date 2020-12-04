@@ -4,7 +4,7 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  perspective: 1px;
+  perspective: 2px;
   perspective-origin: 0 0;
   position: relative;
 
@@ -12,7 +12,7 @@
     width: 100%;
     max-width: 1300px;
     transform-origin:0 0;
-    transform: translateZ(-1px) scale(2.1);
+    transform: translateZ(-1px) scale(1.5);
     z-index: -1;
     position: relative;
     margin: 0 auto;
@@ -20,7 +20,7 @@
       display:block;
       width: 80%;
       height: auto;
-      margin: 0 auto; 
+      margin: 0 auto;
     }
   }
 
