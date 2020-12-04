@@ -39,10 +39,10 @@
 </div>
 
 <div class="outer-container">
-  <h2>Reviews</h2>
+  <h2 class="subheading">Reviews</h2>
   <% @product.reviews.each do |review| %>
     <div class="order-card">
-      <%= user_avatar(review.order.user) %>
+      <%= user_avatar(review.order.user, "avatar-large") %>
       <p><%= review.content %></p>
       <%= link_to "destroy review?", review_path(review), class: "btn-pink review-btn", method: :delete %>
     </div>
