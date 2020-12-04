@@ -6,6 +6,11 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products = policy_scope(Product).order(created_at: :desc)
     @users = User.all
+
+     # if user_signed_in?
+     #  current_user
+     # end
+
     # this returns active record relation of users with products
     @sellers = User.joins(:products).group('users.id')
 
@@ -17,7 +22,14 @@ class ProductsController < ApplicationController
       }
     end
 
-    # raise
+    if user_signed_in?
+      @userloc = [
+       {
+        lat: current_user.latitude,
+        lng: current_user.longitude
+       }
+      ]
+    end
   end
 
   def new
