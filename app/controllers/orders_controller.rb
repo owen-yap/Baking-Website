@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.product = Product.find(params[:product_id])
-    product = @order.product
+    @product = @order.product
     @order.status = "pending"
     authorize @order
     @order.amount = @order.product.price
@@ -34,9 +34,9 @@ class OrdersController < ApplicationController
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
-          name: product.name,
-          images: [product.photo.key],
-          amount: product.price_cents,
+          name: @product.name,
+          images: [@product.photo.key],
+          amount: @product.price_cents,
           currency: 'sgd',
           quantity: @order.quantity
         }],

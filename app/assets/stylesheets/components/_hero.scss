@@ -2,22 +2,42 @@
   width: 90%;
   max-width: 1300px;
   height: 70vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0 auto;
-  background-image: url("/assets/hero-bg.png");
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  perspective: 2px;
 
-  h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: black;
-    display: inline-block;
-    width: 50%;
-    text-align: center;
+  .section {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      color: black;
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+    }
   }
+
+  .parallax::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-1px) scale(1.5);
+    background-size: 100%;
+    z-index: -1;
+  }
+  
+  .bg1::after {
+    background-image: url("/assets/hero-bg.png");
+    background-position: center center;
+  }
+
 }
