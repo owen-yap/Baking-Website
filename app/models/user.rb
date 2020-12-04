@@ -11,6 +11,6 @@ class User < ApplicationRecord
 
   # @user.seller? => true or false
   def seller?
-    !products.empty?
+    seller
   end
 end

@@ -1,0 +1,32 @@
+<div class="outer-container">
+    <div class="container-fluid">
+      <h3>My Sales</h3>
+      <div class="row">
+        <% @products.each do |product| %>
+          <% product.orders.each do |order| %>
+            <a href="<%= order_path(order) %>" class="col-12 col-md-6 col-lg-4">
+              <div class="card-product">
+                <% if order.nil? %>
+                  <p>Sorry, you have no orders!😔</p>
+                <% end %>
+                <% if product.photo.attached? %>
+                  <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+                <% else %>
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <% end %>
+
+                <div class="card-product-infos">
+                  <div class="card-description">
+                    <p class="card-title"><%= product.name %></p>
+                  </div>
+                  <div class="card-price">
+                    <p class="price">Qty ordered: <%="#{order.quantity}"%></p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          <% end %>
+       <% end %>
+      </div>
+    </div>
+</div>
