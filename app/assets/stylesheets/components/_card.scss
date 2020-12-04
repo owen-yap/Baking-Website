@@ -44,16 +44,12 @@ a:hover .card-product {
   border-radius: 8px;
   display: flex;
   margin: 1rem 0;
-
+  
   .name {
     flex-direction: column;
-    text-align: center;
     margin-top: 5px;
-
-    .stars-rating {
-      padding-left: 26px ;
-    }
-
+    flex-grow: 1;
+    padding-left: 10px;
   }
 
   .card-content {
@@ -81,6 +77,7 @@ a:hover .card-product {
     width: 150px;
     height: 48px;
     justify-content: flex-end;
+    align-self: center ;
   }
 
   img {
