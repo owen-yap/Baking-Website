@@ -3,6 +3,7 @@ import "jquery-bar-rating";
 import $ from 'jquery'; // <-- if you're NOT using a Le Wagon template (cf jQuery section)
 
 const initStarRating = () => {
+  console.log("Turobolinks called me!");
   $('#review_rating').barrating({
     theme: 'css-stars',
     onSelect: (value, text, event) => {
