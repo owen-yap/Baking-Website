@@ -1,6 +1,6 @@
 <%= simple_form_for(order) do |f| %>
     <%= f.input :status, collection: %w[pending paid accepted delivered] %>
     <%= f.input :address %>
-    <%= f.input :quantity %>
+    <%= f.input :quantity, collection: 1..50 %>
     <%= f.submit class: "btn btn-orange"%>
   <% end %>
