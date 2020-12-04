@@ -10,7 +10,7 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-    // add markers
+    // add markers of sellers
     const markers = JSON.parse(mapElement.dataset.markers);
 
     const addMarkersToMap = (map, markers) => {
@@ -24,13 +24,8 @@ const initMapbox = () => {
       });
     };
 
-    // markers.forEach((marker) => {
-    //   new mapboxgl.Marker()
-    //     .setLngLat([ marker.lng, marker.lat ])
-    //     .addTo(map);
-    // })
 
-   // add mapboundary
+   // fit my map to markers
    const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
       markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
@@ -38,6 +33,17 @@ const initMapbox = () => {
     };
 
     addMarkersToMap(map, markers);
+
+    //add marker of userloc if it exist
+    if (mapElement.dataset.userloc !== '') {
+      const userloc  = JSON.parse(mapElement.dataset.userloc);
+
+      new mapboxgl.Marker({ color: '#FF0000' })
+          .setLngLat([ userloc[0].lng, userloc[0].lat ])
+          .addTo(map);
+
+      markers.push(userloc[0]);
+    }
     fitMapToMarkers(map, markers);
 
   }
