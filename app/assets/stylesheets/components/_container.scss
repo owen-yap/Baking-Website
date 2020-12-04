@@ -5,6 +5,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  
+  .review-new-container {
+    width: 70%;
+    border-style: solid;
+    box-shadow: 2px 2px 6px rgb(175, 175, 175);
+    border-radius: 6px;
+    border-color: rgb(175, 175, 175);
+    padding: 10px;
+  }
 }
 
 .split-container {

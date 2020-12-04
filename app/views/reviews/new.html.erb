@@ -1,10 +1,13 @@
 <div class="outer-container">
-  <h1>Add a review</h1>
-  <div class="review-card">
-    <%= simple_form_for [@order, @review] do |f| %>
-      <%= f.input :content, label: "😝How was the taste?" %>
-      <%= f.input :rating, label: "⭐Give it a rating", collection: 1..5 %>
-      <%= f.submit 'Submit Review', class: "btn btn-orange" %>
-    <% end %>
+  <div class="review-new-container">
+    <h1>Add a review</h1>
+    <div class="review-card">
+      <%= simple_form_for [@order, @review] do |f| %>
+        <%= f.input :content, label: "😝How was the taste?" %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "⭐Give it a rating" %>
+        <%= f.submit 'Submit Review', class: "btn btn-orange" %>
+      <% end %>
+    </div>
   </div>
 </div>
+
