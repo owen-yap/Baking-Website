@@ -8,8 +8,14 @@
   .card-user {
     color: black;
     font-weight: bold;
+    height: 40px;
     margin: 5px 0;
     display: flex;
+    align-items: center;
+
+    p {
+      margin: 0 0 0 10px;
+    }
   }
   
   .product-photo {
@@ -19,6 +25,9 @@
   .card-product-infos {
     display: flex;
     align-items: center;
+    color: black;
+    transition: color ease 0.2s;
+
     .card-title {
       font-size: 2rem;
     }
@@ -26,7 +35,8 @@
       display: inline-block;
       padding-right: 5px; 
       margin-left: auto;
-      
+      align-self: flex-start;
+
       .price {
         font-size: 2rem;
       }
@@ -36,6 +46,10 @@
 
 a:hover .card-product {
   box-shadow: 2px 2px 12px rgb(122, 122, 122);
+
+  .card-product-infos {
+    color: gray;
+  }
 }
 
 .order-card {

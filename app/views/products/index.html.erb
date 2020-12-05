@@ -8,14 +8,14 @@
         <a href="<%= product_path(product) %>" class="col-12 col-md-6 col-lg-4">
           <div class="card-product">
             <div class="card-user">
-                <%= user_avatar(product.user, "avatar avatar-align") %>
-                <%= product.user.username %>
+                <%= user_avatar(product.user, "avatar") %>
+                <p><%= product.user.username %></p>
             </div>
 
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill, class: "product-photo" %>
             <% else %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="product-photo" />
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/" class="product-photo" />
             <% end %>
 
             <div class="card-product-infos">
