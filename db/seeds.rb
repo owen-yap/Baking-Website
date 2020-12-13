@@ -48,7 +48,7 @@ end
   product.photo.attach(io: file, filename: 'jpeg', content_type: 'image/jpeg')
   product.save
 end
-#USer
+#User
 
 buyer = User.new(email: "buyer@gmail.com", password: "lewagon")
 buyer.username = "Roger"
