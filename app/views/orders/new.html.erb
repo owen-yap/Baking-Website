@@ -15,9 +15,8 @@
     <%= simple_form_for [@product, @order] do |f| %>
       <%= f.input :quantity, label: 'Quantity: ', input_html: { type: 'number' } %>
       <%= f.input :delivery, label: 'Delivery / Self Collect: ', as: :radio_buttons, collection: %w[delivery self-collection] %>
-      <p>Self-collection Address: <strong><%= @product.user.address %></strong></p>
+      <p id="self_collect_address">Self-collection Address: <strong><%= @product.user.address %></strong></p>
       <%= f.input :address, label: 'Delivery Address: ' %>
-      <p>Put NA if you selected self-collection</p>
       <%= f.button :submit, 'Submit Order', class: "btn-orange" %>
     <% end %>
   </div>
