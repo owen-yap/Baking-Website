@@ -1,7 +1,7 @@
 <div class="sm-container">
   <%= link_to "< Back", product_path(@product), class: "btn-muted" %>
 </div>
-<div class="sm-container">
+<div class="sm-container mb-4">
   <div class="order-form">
     <h1>New Order</h1>
     <div class="order-product">
@@ -14,7 +14,10 @@
     <h2>Order details</h2>
     <%= simple_form_for [@product, @order] do |f| %>
       <%= f.input :quantity, label: 'Quantity: ', input_html: { type: 'number' } %>
+      <%= f.input :delivery, label: 'Delivery / Self Collect: ', as: :radio_buttons, collection: %w[delivery self-collection] %>
+      <p>Self-collection Address: <strong><%= @product.user.address %></strong></p>
       <%= f.input :address, label: 'Delivery Address: ' %>
+      <p>Put NA if you selected self-collection</p>
       <%= f.button :submit, 'Submit Order', class: "btn-orange" %>
     <% end %>
   </div>
