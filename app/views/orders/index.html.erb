@@ -6,7 +6,11 @@
       <div class="card-content">
         <p class="card-title"><%= order.product.name %></p>
         <p>Quantity: <strong><%= order.quantity %></strong></p>
-        <p>Delivery address: <strong><%= order.address %></strong></p>
+        <% if order.delivery == "delivery" %>
+          <p>Delivery address: <strong><%= order.address %></strong></p>
+        <% else %>
+          <p>Self-collection address: <strong><%= order.product.user.address %></strong></p>
+        <% end %>
         <p class="status">Status: <strong><%= order.status %></strong></p>
       <% if order.review %>
           <p>Review: <%= order.review.content %> ,<strong><%= order.review.rating %></strong> ★</p>
