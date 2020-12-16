@@ -8,7 +8,39 @@
         <p>Quantity: <strong><%= item.quantity %></strong></p>
         <p>Price: <%= item.product.price %></p>
       </div>
+      <%= link_to cart_item_path(item.id), method: :delete do %>
+        <%= image_tag "delete.png", class: "trash-btn" %>
+      <% end %>
     </div>
   <% end %>
-  <h2 class="align-self-start">Total price: <%= @cart.price %></h2>
+  <h2 class="align-self-start d-inline-block">Total price: <%= @cart.price %></h2>
+  <% unless @cart.cart_items.nil? || @cart.cart_items.empty? %>
+      <button type="button" class="btn btn-pink ml-3" data-toggle="modal" data-target="#exampleModal">
+        Checkout
+      </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">My Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= simple_form_for @cart do |f| %>
+            <div class="modal-body">
+              
+                <%= f.select :delivery, collection: %w[delivery self-collection] %>
+                <%= f.input :address, label: "Delivery Address (leave N.A. if self-collecting)" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit 'Add to cart', class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

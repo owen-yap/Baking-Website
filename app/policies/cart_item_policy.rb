@@ -8,4 +8,8 @@ class CartItemPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    record.cart.user == user
+  end
 end

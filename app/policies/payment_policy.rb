@@ -5,7 +5,7 @@ class PaymentPolicy < ApplicationPolicy
     end
   end
 
-  def new
+  def new?
     record.user == user
   end
 end

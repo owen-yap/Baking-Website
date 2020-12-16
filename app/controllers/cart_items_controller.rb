@@ -13,7 +13,17 @@ class CartItemsController < ApplicationController
     cart.price += @cart_item.product.price * @cart_item.quantity
     cart.save!
     @cart_item.save!
-    redirect_to cart_path
+    redirect_to cart_path(cart)
+  end
+
+  def destroy
+    @cart_item = CartItem.find(params[:id])
+    authorize @cart_item
+    cart = @cart_item.cart
+    cart.price -= @cart_item.product.price
+    cart.save
+    @cart_item.destroy
+    redirect_to cart_path(cart)
   end
 
   private
