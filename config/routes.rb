@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   get "/my_products", to: "products#my_products", as: :my_products
   get "/my_sales", to: "products#my_sales", as: :my_sales
   get '/orders', to: 'orders#index', as: :orders
+  get '/cart', to: 'carts#show'
   devise_for :users
   root to: 'products#index'
 
   resources :products do
     resources :orders, only: [:new, :create]
+    resources :cart_items, only: :create
   end
   resources :orders, only: [:edit, :show, :update, :destroy] do
     resources :reviews, only: [:new, :create]

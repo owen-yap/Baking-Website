@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
     @products = policy_scope(Product).order(created_at: :desc)
     @users = User.all
 
-     # if user_signed_in?
-     #  current_user
-     # end
+    # if user_signed_in?
+    #  current_user
+    # end
 
     # this returns active record relation of users with products
     @sellers = User.joins(:products).group('users.id')
@@ -24,10 +24,10 @@ class ProductsController < ApplicationController
 
     if user_signed_in?
       @userloc = [
-       {
-        lat: current_user.latitude,
-        lng: current_user.longitude
-       }
+        {
+          lat: current_user.latitude,
+          lng: current_user.longitude
+        }
       ]
     end
   end
@@ -50,6 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @cart_item = CartItem.new
     skip_authorization
   end
 

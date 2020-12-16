@@ -5,5 +5,6 @@ class Product < ApplicationRecord
   has_many :reviews, through: :orders # => def #reviews Product.reviews
   has_many :product_categories
   has_many :categories, through: :product_categories
+  has_many :cart_items, dependent: :destroy
   monetize :price_cents
 end

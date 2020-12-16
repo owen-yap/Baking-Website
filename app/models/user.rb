@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_one_attached :userphoto
   has_many :reviews, through: :orders, dependent: :destroy
-  has_one :cart
+  has_one :cart, dependent: :destroy
 
   # @user.seller? => true or false
   def seller?

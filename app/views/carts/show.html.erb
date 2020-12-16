@@ -1,0 +1,14 @@
+<div class="outer-container">
+  <h1>My Cart</h1>
+  <% @cart_items.each do |item| %>
+    <div class="order-card">
+      <%= cl_image_tag item.product.photo.key, height: 300, width: 400, crop: :fill, class: "product-img" %>
+      <div class="card-content">
+        <p class="card-title"><%= item.product.name %></p>
+        <p>Quantity: <strong><%= item.quantity %></strong></p>
+        <p>Price: <%= item.product.price %></p>
+      </div>
+    </div>
+  <% end %>
+  <h2 class="align-self-start">Total price: <%= @cart.price %></h2>
+</div>

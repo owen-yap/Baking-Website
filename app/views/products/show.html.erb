@@ -24,7 +24,37 @@
         <h3>Description</h3>
         <p class="card-description"><%= @product.description %></p>
       </div>
-      <%= link_to "Order now", new_product_order_path(@product), class: "btn-orange" %>
+      <div class="d-flex">
+        <%= link_to "Order now", new_product_order_path(@product), class: "btn-orange" %>
+        <button type="button" class="btn btn-pink ml-3" data-toggle="modal" data-target="#exampleModal">
+          Add to Cart
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%= @product.name %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= simple_form_for [@product, @cart_item] do |f| %>
+                <div class="modal-body">
+                  
+                    <%= f.input :quantity %>
+                    <%= f.input :product_id, as: :hidden, input_html: {value: @product.id } %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <%= f.submit 'Add to cart', class: "btn btn-primary" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
