@@ -1,8 +1,7 @@
-<h6><%= seller.username %></h6>
-<p><%= seller.address %></p>
-<ul>
+<h3><%= seller.username %></h3>
+<h5 class="mb-3"><%= seller.address %></h5>
+<div>
   <% seller.products.each do |product| %>
-  <li><%= product.name %></li>
-
-<% end %>
-</ul>
+    <p>&nbsp;&nbsp;<%= product.name %></p>
+  <% end %>
+</div>
