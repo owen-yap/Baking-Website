@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
   resources :reviews, only: [:destroy]
-  resources :carts, only: [:show, :update]
+  resources :carts, only: [:index, :update]
 
   get "/carts/:cart_id/payments/new", to: "payments#cart_payment", as: :new_cart_payment
   delete "cart_item/:id", to: "cart_items#destroy", as: :cart_item

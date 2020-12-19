@@ -1,11 +1,11 @@
 class CartsController < ApplicationController
-  def show
+  def index
     if current_user.cart.nil?
       new_cart = Cart.new
       new_cart.user = current_user
+      new_cart.save!
     end
-    @cart = current_user.cart
-    authorize @cart
+    @cart = policy_scope(Cart).where(user: current_user).first
     @cart_items = current_user.cart.cart_items
     @price = 0
   end
@@ -35,8 +35,8 @@ class CartsController < ApplicationController
         currency: 'sgd',
         quantity: 1
       }],
-      success_url: cart_url(@cart),
-      cancel_url: cart_url(@cart)
+      success_url: orders_url,
+      cancel_url: carts_url
     )
 
     @cart.update(checkout_session_id: session.id)

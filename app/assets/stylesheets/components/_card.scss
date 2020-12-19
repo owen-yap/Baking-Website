@@ -60,6 +60,10 @@ a:hover .card-product {
   display: flex;
   align-items: center;
   margin: 1rem 0;
+
+  .icon {
+    width: 50px;
+  }
   
   .name {
     flex-direction: column;

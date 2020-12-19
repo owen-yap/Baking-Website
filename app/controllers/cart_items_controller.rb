@@ -13,7 +13,7 @@ class CartItemsController < ApplicationController
     cart.price += @cart_item.product.price * @cart_item.quantity
     cart.save!
     @cart_item.save!
-    redirect_to cart_path(cart)
+    redirect_to carts_path
   end
 
   def destroy
@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
     cart.price -= @cart_item.product.price
     cart.save
     @cart_item.destroy
-    redirect_to cart_path(cart)
+    redirect_to carts_path
   end
 
   private

@@ -13,9 +13,9 @@
       <% end %>
     </div>
   <% end %>
-  <h2 class="align-self-start d-inline-block">Total price: <%= @cart.price %></h2>
+  
   <% unless @cart.cart_items.nil? || @cart.cart_items.empty? %>
-      <button type="button" class="btn btn-pink ml-3" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal">
         Checkout
       </button>
 
@@ -36,11 +36,20 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <%= f.submit 'Add to cart', class: "btn btn-primary" %>
+              <%= f.submit 'Confirm', class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
+
+  <% else %>
+    <div class="order-card">
+      <div class="mx-auto d-flex flex-column align-items-center">
+      	<%= image_tag "missing.svg", class: "icon" %>
+      	<h3 class="mx-auto">Cart is Empty</h3>
+      </div>
+    </div>
   <% end %>
+  <h2 class="align-self-start d-inline-block">Total price: <%= @cart.price %></h2>
 </div>

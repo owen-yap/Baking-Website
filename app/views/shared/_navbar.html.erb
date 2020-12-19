@@ -3,7 +3,7 @@
     <%= image_tag "bread.png" %>
   <% end %>
   <% if user_signed_in? %>
-    <%= link_to cart_path(current_user.cart), class: "ml-auto" do %>
+    <%= link_to carts_path, class: "ml-auto" do %>
       <%= image_tag "bag.png" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
