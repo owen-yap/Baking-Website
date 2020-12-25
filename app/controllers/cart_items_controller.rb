@@ -20,7 +20,7 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     authorize @cart_item
     cart = @cart_item.cart
-    cart.price -= @cart_item.product.price
+    cart.price -= @cart_item.product.price * @cart_item.quantity
     cart.save
     @cart_item.destroy
     redirect_to carts_path
