@@ -13,6 +13,8 @@
     </div>
     <h2>Order details</h2>
     <%= simple_form_for [@product, @order] do |f| %>
+      <%= f.input :name, label: 'Name: ', input_html: { value: current_user.username } %>
+      <%= f.input :contact, label: 'Phone Number: ' %>
       <%= f.input :quantity, label: 'Quantity: ', input_html: { type: 'number' } %>
       <%= f.input :delivery, label: 'Delivery / Self Collect: ', as: :radio_buttons, collection: %w[delivery self-collection] %>
       <p id="self_collect_address">Self-collection Address: <strong><%= @product.user.address %></strong></p>
