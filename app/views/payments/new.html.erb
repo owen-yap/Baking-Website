@@ -1,19 +1,25 @@
-<div class="lg-container payment-card p-3">
-  <h1>Checkout summary</h1>
+<div class="lg-container payment-card p-3 my-5">
     <div class="container-fluid">
+      <div class="row">
+        <h1>Checkout summary</h1>
+      </div>
       <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
           <%= cl_image_tag @order.product.photo.key, class: "product-photo" %>
         </div>
 
         <div class="col-12 col-md-6 col-lg-6">
-          <h4>Purchase of <strong><%= @order.product.name %></strong> for <strong><%= humanized_money_with_symbol @order.product.price %></strong></h4>
+          <h4><%= @order.product.name %>:<strong> <%= humanized_money_with_symbol @order.product.price %></strong></h4>
           <% if @order.delivery == "delivery" %>  
-            <p>Delivery Cost: </p>
+            <h4>Delivery Cost: </h4>
+          <% else %>
+            <h4>Self-collection: <strong>$0</strong></h4>
           <% end %>
           <hr>
           <h4>Total: <strong><%= humanized_money_with_symbol @order.amount %></strong></h4>
           <%= image_tag "qrcode.jpg", class: "qrcode" %>
+          <p>If you prefer to use paynow/paylah, please send the amount to 9145 8249 and add your contact in the reference. Screenshot the transaction and send it via Whatsapp/Telegram to 9145 8249</p>
+          <p>For credit card payment, click the button below.</p>
           <button id="pay" class="btn btn-primary">Credit Card Payment</button>  
         </div>
       </div>
