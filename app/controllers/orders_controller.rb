@@ -15,28 +15,34 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @user = current_user
-    @product = Product.find(params[:product_id])
+    unless current_user.nil?
+      @user = current_user
+      @order.address = @user.address.to_s
+      @order.email = @user.email
+    end
     @order.quantity = 1
-    @order.address = @user.address.to_s unless current_user.nil?
-    @order.email = @user.email unless current_user.nil?
+    @product = Product.find(params[:product_id])
     authorize @order
   end
 
   def create
     @order = Order.new(order_params)
+    authorize @order
+    @product = Product.find(params[:product_id])
     # if user not signed in
     if current_user.nil?
       new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name], address: "-")
-      new_user.save!
-      sign_in new_user
-      @order.user = new_user
+      if new_user.save
+        sign_in new_user
+        @order.user = new_user
+      else
+        render :new
+        return
+      end
     end
     @order.user = current_user unless current_user.nil?
-    @order.product = Product.find(params[:product_id])
-    @product = @order.product
+    @order.product = @product
     @order.status = "pending"
-    authorize @order
     @order.amount = @order.product.price
     if @order.save
 

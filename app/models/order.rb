@@ -6,5 +6,5 @@ class Order < ApplicationRecord
 
   validates :status, inclusion: { in: %w[pending paid accepted delivered] }
   validates :delivery, inclusion: { in: %w[delivery self-collection] }
-  validates :product, :user, :quantity, :amount, presence: true
+  validates :product, :user, :quantity, :amount, :email, :contact, :name, presence: true
 end
