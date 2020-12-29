@@ -1,7 +1,12 @@
+<div class="lg-container">
+  <p>If you have not already created an account, use your email and phone number as a password to log in and track your orders.</p>
+</div>
 <div class="lg-container payment-card p-3 my-5">
     <div class="container-fluid">
       <div class="row">
-        <h1>Checkout summary</h1>
+        <div class="col-12">
+          <h1>Checkout summary</h1>
+        </div>
       </div>
       <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
@@ -19,8 +24,8 @@
           <h4>Total: <strong><%= humanized_money_with_symbol @order.amount %></strong></h4>
           <%= image_tag "qrcode.jpg", class: "qrcode" %>
           <p>If you prefer to use paynow/paylah, please send the amount to 9145 8249 and add your contact in the reference. Screenshot the transaction and send it via Whatsapp/Telegram to 9145 8249</p>
-          <p>For credit card payment, click the button below.</p>
-          <button id="pay" class="btn btn-primary">Credit Card Payment</button>  
+          <p>For credit card payment or Gpay, click the button below.</p>
+          <button id="pay" class="btn btn-primary">Credit Card Payment / Gpay</button>  
         </div>
       </div>
     </div>

@@ -54,19 +54,3 @@ buyer = User.new(email: "buyer@gmail.com", password: "lewagon")
 buyer.username = "Roger"
 buyer.address = "Ion Orchard, Singapore"
 buyer.save!
-
-product1 = Product.first
-
-#Order
-order1 = Order.new(status: "pending")
-order1.product = product1
-order1.user = buyer
-order1.address = "221B Baker Street"
-order1.quantity = 3
-order1.save!
-
-#Reviews
-
-review1 = Review.new(content:"Great cupcakes", rating: 4)
-review1.order = order1
-review1.save!

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[new create]
 
   def index
     @orders = current_user.orders
@@ -17,13 +18,21 @@ class OrdersController < ApplicationController
     @user = current_user
     @product = Product.find(params[:product_id])
     @order.quantity = 1
-    @order.address = @user.address.to_s
+    @order.address = @user.address.to_s unless current_user.nil?
+    @order.email = @user.email unless current_user.nil?
     authorize @order
   end
 
   def create
     @order = Order.new(order_params)
-    @order.user = current_user
+    # if user not signed in
+    if current_user.nil?
+      new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name], address: "-")
+      new_user.save!
+      sign_in new_user
+      @order.user = new_user
+    end
+    @order.user = current_user unless current_user.nil?
     @order.product = Product.find(params[:product_id])
     @product = @order.product
     @order.status = "pending"
