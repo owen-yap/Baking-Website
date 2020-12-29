@@ -34,7 +34,6 @@ class OrdersController < ApplicationController
       new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name], address: "-")
       if new_user.save
         sign_in new_user
-        @order.user = new_user
       else
         render :new
         return
@@ -45,7 +44,6 @@ class OrdersController < ApplicationController
     @order.status = "pending"
     @order.amount = @order.product.price
     if @order.save
-
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -62,6 +60,7 @@ class OrdersController < ApplicationController
       @order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(@order)
     else
+      raise
       render :new
     end
   end
@@ -86,6 +85,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status, :address, :quantity, :delivery)
+    params.require(:order).permit(:status, :address, :quantity, :delivery, :name, :contact, :email)
   end
 end
