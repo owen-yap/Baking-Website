@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     # if user not signed in
     if current_user.nil?
-      new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name], address: "-")
+      new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name], address: "Singapore")
       if new_user.save
         sign_in new_user
       else
