@@ -31,7 +31,7 @@ seller2.save!
 
 2.times do
   dessert = Faker::Dessert.variety
-  product = Product.new(name: "#{Faker::Dessert.flavor} #{dessert}", description: "Soft and fluffy", price: (1..15).to_a.sample, category: "Pastry")
+  product = Product.new(name: "#{Faker::Dessert.flavor} #{dessert}", price: (1..15).to_a.sample, category: "Pastry")
   product.user = seller
   product.category = Category.all.sample
   file = URI.open("https://source.unsplash.com/300x400/?#{dessert}")
@@ -41,7 +41,7 @@ end
 
 2.times do
   dessert = Faker::Dessert.variety
-  product = Product.new(name: "#{Faker::Dessert.flavor} #{dessert}", description: "Soft and fluffy", price: (1..15).to_a.sample, category: "Pastry")
+  product = Product.new(name: "#{Faker::Dessert.flavor} #{dessert}", price: (1..15).to_a.sample, category: "Pastry")
   product.user = seller2
   product.category = Category.all.sample
   file = URI.open("https://source.unsplash.com/300x400/?#{dessert}")
