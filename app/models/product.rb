@@ -9,5 +9,5 @@ class Product < ApplicationRecord
   has_rich_text :rich_body
   monetize :price_cents
 
-  validates :name, :price, :category, :rich_body
+  validates :name
 end
