@@ -6,5 +6,8 @@ class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories
   has_many :cart_items, dependent: :destroy
+  has_rich_text :rich_body
   monetize :price_cents
+
+  validates :name, :price, :category, :rich_body
 end

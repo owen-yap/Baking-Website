@@ -35,3 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initStarRating();
 });
+
+require("trix")
+require("@rails/actiontext")

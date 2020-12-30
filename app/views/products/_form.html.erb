@@ -1,6 +1,9 @@
 <%= simple_form_for(product) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
+    <%= f.input :name, label: "Title: " %>
+    <label>Description: </label>
+    <div class="form-inputs">
+      <%= f.rich_text_area :rich_body %>
+    </div>
     <%= f.input :price %>
     <%= f.input :category %>
     <%= f.input :photo, as: :file %>
