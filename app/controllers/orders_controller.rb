@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    # @order.address = "-"
     unless current_user.nil?
       @user = current_user
       @order.address = @user.address.to_s
@@ -60,7 +61,6 @@ class OrdersController < ApplicationController
       @order.update(checkout_session_id: session.id)
       redirect_to new_order_payment_path(@order)
     else
-      raise
       render :new
     end
   end
