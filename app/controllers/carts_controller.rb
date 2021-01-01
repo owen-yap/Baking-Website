@@ -1,13 +1,9 @@
 class CartsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    if current_user.cart.nil?
-      new_cart = Cart.new
-      new_cart.user = current_user
-      new_cart.save!
-    end
-    @cart = policy_scope(Cart).where(user: current_user).first
-    @cart_items = current_user.cart.cart_items
-    @price = 0
+    @cart_items = @cart.cart_items
+    skip_policy_scope
   end
 
   def update

@@ -1,17 +1,12 @@
 class CartItemsController < ApplicationController
-  def create
-    if current_user.cart.nil?
-      new_cart = Cart.new
-      new_cart.user = current_user
-      new_cart.save!
-    end
+  skip_before_action :authenticate_user!
 
-    cart = current_user.cart
+  def create
     @cart_item = CartItem.new(cart_item_params)
     authorize @cart_item
-    @cart_item.cart = cart
-    cart.price += @cart_item.product.price * @cart_item.quantity
-    cart.save!
+    @cart_item.cart = @cart
+    @cart.price += @cart_item.product.price * @cart_item.quantity
+    @cart.save!
     @cart_item.save!
     redirect_to carts_path
   end

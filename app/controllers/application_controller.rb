@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :current_customer, :current_shopping_cart
+  before_action :authenticate_user!, :current_customer, :current_cart
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
@@ -19,29 +19,33 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
-  def current_customer
-    @user = User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def current_shopping_cart
+  def current_cart
     if login?
+      if current_user.cart.nil?
+        new_cart = Cart.new
+        new_cart.user = current_user
+        new_cart.save!
+      end
       @cart = @user.cart
     else
       if session[:cart]
         @cart = Cart.find(session[:cart])
       else
-        @cart = Cart.create(delivery: "self-collection", price_cents: 0)
-        raise
+        @cart = Cart.create(delivery: "self-collection")
         session[:cart] = @cart.id
       end
     end
   end
 
+  private
+
+  def current_customer
+    @user = current_user unless current_user.nil?
+  end
+
   def login?
     !!current_customer
   end
-
-  private
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
