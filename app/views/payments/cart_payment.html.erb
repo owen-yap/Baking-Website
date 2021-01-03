@@ -1,20 +1,42 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong>Cart Items</strong> for <strong><%= humanized_money_with_symbol @cart.price %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @cart.checkout_session_id %>'
-          });
-        });
-      </script>
+<div class="sm-container">
+  <p>If you have not already created an account, use your email and phone number as a password to log in and track your orders.</p>
+</div>
+<div class="sm-container payment-card p-3 my-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>Checkout summary</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+          <% @cart.cart_items.each do |item| %>
+            <h4><%= item.product.name %>:<strong> <%= humanized_money_with_symbol item.product.price %></strong></h4>
+          <% end %>
+          <% if @cart.delivery == "delivery" %>  
+            <h4>Delivery Cost: </h4>
+          <% else %>
+            <h4>Self-collection: <strong>$0</strong></h4>
+          <% end %>
+          <hr>
+          <h4>Total: <strong><%= humanized_money_with_symbol @cart.price %></strong></h4>
+          <%= image_tag "qrcode.jpg", class: "qrcode" %>
+          <p>If you prefer to use paynow/paylah, please send the amount to 9145 8249 and add your contact in the reference. Screenshot the transaction and send it via Whatsapp/Telegram to 9145 8249</p>
+          <p>For credit card payment or Gpay, click the button below.</p>
+          <button id="pay" class="btn btn-primary">Credit Card Payment / Gpay</button>
+          <%= link_to "I'm Done!", orders_path, class: "btn btn-orange" %>  
+        </div>
+      </div>
     </div>
-  </div>
+    <script src="https://js.stripe.com/v3/"></script>
+      
+    <script>
+      const paymentButton = document.getElementById('pay');
+      paymentButton.addEventListener('click', () => {
+        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+        stripe.redirectToCheckout({
+          sessionId: '<%= @cart.checkout_session_id %>'
+        });
+      });
+    </script>
 </div>

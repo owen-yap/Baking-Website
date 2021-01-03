@@ -34,6 +34,9 @@
           <%= simple_form_for @cart do |f| %>
             <div class="modal-body">
               
+                <%= f.input :name %>
+                <%= f.input :email %>
+                <%= f.input :contact %>
                 <%= f.select :delivery, collection: %w[delivery self-collection] %>
                 <%= f.input :address, label: "Delivery Address (leave N.A. if self-collecting)" %>
             </div>

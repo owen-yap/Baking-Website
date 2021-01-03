@@ -7,10 +7,6 @@ class ProductsController < ApplicationController
     @products = policy_scope(Product).order(created_at: :desc)
     @users = User.all
 
-    # if user_signed_in?
-    #  current_user
-    # end
-
     # this returns active record relation of users with products
     @sellers = User.joins(:products).group('users.id')
 

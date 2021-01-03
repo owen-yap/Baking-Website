@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_01_051158) do
+ActiveRecord::Schema.define(version: 2021_01_01_174510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 2021_01_01_051158) do
     t.string "delivery", default: "self-collection"
     t.text "address"
     t.string "checkout_session_id"
+    t.string "name"
+    t.string "contact"
+    t.string "email"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
