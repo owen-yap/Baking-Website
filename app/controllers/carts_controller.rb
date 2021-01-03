@@ -12,11 +12,19 @@ class CartsController < ApplicationController
   end
 
   def update
+    authorize @cart
+
     unless user_signed_in?
-      new_user = User.create(username: params[:cart][:name], email: params[:cart][:email], password: [:cart][:contact])
-      sign_in new_user
+      new_user = User.new(username: params[:cart][:name], email: params[:cart][:email], password: params[:cart][:contact])
+      if new_user.save
+        new_user.cart = @cart
+        sign_in new_user
+      else
+        redirect_to carts_path, alert: "Email has already been taken"
+        return
+      end
     end
-    @cart = current_user.cart
+
     @cart.update(cart_params)
     @cart.cart_items.each do |item|
       order = Order.new
@@ -33,8 +41,6 @@ class CartsController < ApplicationController
       order.save!
     end
 
-    authorize @cart
-
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
@@ -48,6 +54,8 @@ class CartsController < ApplicationController
     )
 
     @cart.update(checkout_session_id: session.id)
+
+    @cart.cart_items.destroy_all
 
     redirect_to new_cart_payment_path(@cart)
   end

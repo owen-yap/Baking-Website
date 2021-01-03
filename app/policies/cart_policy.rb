@@ -10,7 +10,7 @@ class CartPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    true
   end
 
   def cart_payment?

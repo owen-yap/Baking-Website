@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    # @order.address = "-"
     unless current_user.nil?
       @user = current_user
       @order.address = @user.address.to_s
@@ -32,7 +31,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     # if user not signed in
     if current_user.nil?
-      new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name], address: "Singapore")
+      new_user = User.new(email: params[:order][:email], password: params[:order][:contact], username: params[:order][:name])
       if new_user.save
         sign_in new_user
       else
