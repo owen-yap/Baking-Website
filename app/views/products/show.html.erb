@@ -70,26 +70,35 @@
 
 <div class="outer-container">
   <h2 class="subheading">Reviews</h2>
-  <% @product.reviews.each do |review| %>
-    <div class="order-card p-3">
-      <%= user_avatar(review.order.user, "avatar-large") %>
-      
-      <div class = "name">
-        <strong><%= review.order.user.username %></strong>
-        <div class = "stars-rating">
-          <% (review.rating).times do |star| %>
-            <i class="fas fa-star"></i>
+  <% unless @product.reviews.empty? %>
+    <% @product.reviews.each do |review| %>
+      <div class="order-card p-3">
+        <%= user_avatar(review.order.user, "avatar-large") %>
+        
+        <div class = "name">
+          <strong><%= review.order.user.username %></strong>
+          <div class = "stars-rating">
+            <% (review.rating).times do |star| %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <div class = "review-content">
+            <p><%= review.content %></p>
+          </div>
+        </div>
+        <% if current_user == review.order.user %>
+          <%= link_to review_path(review), class: "mr-3", method: :delete do %>
+            <%= image_tag "delete.png", class: "trash-btn" %>
           <% end %>
-        </div>
-        <div class = "review-content">
-          <p><%= review.content %></p>
-        </div>
-      </div>
-      <% if current_user == review.order.user %>
-        <%= link_to review_path(review), class: "mr-3", method: :delete do %>
-          <%= image_tag "delete.png", class: "trash-btn" %>
         <% end %>
-      <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="order-card my-5">
+      <div class="mx-auto d-flex flex-column align-items-center">
+      	<%= image_tag "missing.svg", class: "icon" %>
+      	<h3 class="mx-auto">No Reviews Yet</h3>
+      </div>
     </div>
   <% end %>
 </div>

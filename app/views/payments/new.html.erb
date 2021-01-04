@@ -1,7 +1,7 @@
-<div class="lg-container">
+<div class="sm-container">
   <p>If you have not already created an account, use your email and phone number as a password to log in and track your orders.</p>
 </div>
-<div class="lg-container payment-card p-3 my-5">
+<div class="sm-container payment-card p-3 my-5">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -9,11 +9,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-6">
-          <%= cl_image_tag @order.product.photo.key, class: "product-photo" %>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-6">
+        <div class="col-12">
           <h4><%= @order.product.name %>:<strong> <%= humanized_money_with_symbol @order.product.price %></strong></h4>
           <% if @order.delivery == "delivery" %>  
             <h4>Delivery Cost: </h4>
